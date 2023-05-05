@@ -1,0 +1,8 @@
+<h1>ngswitch works!</h1>
+<div *ngFor="let product of products">
+  <div [ngSwitch]="product.size">
+    <div *ngSwitchCase="1">Big Product</div>
+    <div *ngSwitchCase="2">Middle Product</div>
+    <div *ngSwitchCase="3">Small Product</div>
+  </div>
+</div>

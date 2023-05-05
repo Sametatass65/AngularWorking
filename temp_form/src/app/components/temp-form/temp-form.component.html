@@ -1,0 +1,49 @@
+<h3>temp-form works!</h3>
+
+<form #ngform="ngForm"(ngSubmit)="saveChange(ngform)">
+    <label for="userName">Name:</label>
+    <input #userNameInput="ngModel" type="text" name="userName" [ngModel]="loginTemplater.name" required minlength="5" maxlength="30" email >
+    <br>
+    <div style="border: solid 1px red; padding:10px">
+        <ul>
+            <li>Valid: {{userNameInput.valid}}</li>
+            <li>InValid: {{userNameInput.invalid}}</li>
+            <li>Dirty: {{userNameInput.dirty}}</li>
+            <li>Pristine: {{userNameInput.pristine}}</li>
+            <li>Error: {{userNameInput.errors |json}}</li>
+            <li>Touched: {{userNameInput.touched}}</li>
+            <li>UnTouched: {{userNameInput.untouched}}</li>
+            <li>Value: {{userNameInput.value}}</li>
+        </ul>        
+    </div>
+    <br>
+    <label for="userPassword">Password:</label>
+    <input #passwordInput="ngModel"type="password" name="userPassword" [ngModel]="loginTemplater.password" >
+    <div style="border: solid 1px red; padding:10px">
+        <ul>
+            <li>Valid: {{passwordInput.valid}}</li>
+            <li>InValid: {{passwordInput.invalid}}</li>
+            <li>Dirty: {{passwordInput.dirty}}</li>
+            <li>Pristine: {{passwordInput.pristine}}</li>
+            <li>Error: {{passwordInput.errors |json}}</li>
+            <li>Touched: {{passwordInput.touched}}</li>
+            <li>UnTouched: {{passwordInput.untouched}}</li>
+            <li>Value: {{passwordInput.value}}</li>
+        </ul>        
+    </div>
+    <br>
+    <select  name="country" [ngModel]="loginTemplater.country" (ngModelChange)="countryChange($event)">
+        <option *ngFor="let item of countryTemplaters" value="{{item.value}}">{{item.name}}</option>           
+    </select>
+    <br>
+    <label for="chechBox">rememberMe</label>
+    <input type="checkbox" name="rememberMe" [ngModel]="loginTemplater.rememberMe">
+    <br>
+    <div *ngFor="let item of genderTemplater">
+        <input type="radio" name="gender" [value]="item.value" [ngModel]="loginTemplater.gender" (ngModelChange)="genderChange($event)"> {{item.name}}
+    </div>        
+    <br>
+    <button type="sumbit">Giriş</button>
+</form>
+
+<!-- (ngModelChange)="loginTemplater.password = $event = two-way bindint -->

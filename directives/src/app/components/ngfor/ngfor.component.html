@@ -1,0 +1,28 @@
+<h3>ngfor works!</h3>
+
+<h5>İsimler</h5>
+<div *ngFor="let name of names">{{name}}</div>
+<hr>
+
+<h5>Users</h5>
+<div *ngFor="let user of users">{{user.id}} - {{user.name}} - {{user.email}}  </div>
+<hr>
+
+<h5>Users Table</h5>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </tbody>
+</table>
+

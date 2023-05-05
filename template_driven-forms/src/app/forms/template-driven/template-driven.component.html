@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <form #sumbit="ngForm" (ngSubmit)="consoleLog(sumbit)">
+      <div class="mb-3">
+        <label style="font-weight: 750;" for="userName">User Name:</label>
+        <input
+          class="form-control"
+          [ngClass]="{
+            invalidRed: isInValid(nameInput.control),
+            validGreen: isValid(nameInput.control)  
+          }"
+          #nameInput="ngModel"
+          type="text"
+          name="userName1"
+          [ngModel]="login.userName"
+          required
+          minlength="5"
+          maxlength="30"
+          email
+        />
+      </div>
+
+      <div class="alert alert-danger" *ngIf="nameInput.invalid && (nameInput.dirty|| nameInput.touched)"> 
+        <small *ngIf="nameInput.errors?.['required']">Lütfen boş bırakmayınız</small>
+      </div>
+
+      <div class="alert alert-info">
+        <ul>
+          <li>Valid: {{ nameInput.valid }}</li>
+          <li>InValid: {{ nameInput.invalid }}</li>
+          <li>Errors {{ nameInput.errors | json }}</li>
+          <li>Dirty: {{ nameInput.dirty }}</li>
+          <li>Pristine: {{ nameInput.pristine }}</li>
+          <li>Touched: {{ nameInput.touched }}</li>
+          <li>UnTouched: {{ nameInput.untouched }}</li>
+          <li>value: {{ nameInput.value }}</li>
+        </ul>
+      </div>
+      <div class="mb-3">
+        <label style="font-weight: 750;"  for="userPasword">Password:</label>
+        <input class="form-control"
+          [ngClass]="{
+            validGreen: isValid(passwordInput.control),
+            inValidRed: isInValid(passwordInput.control)
+          }"
+          #passwordInput="ngModel"
+          type="password"
+          name="userPasword1"
+          [ngModel]="login.password"
+          required=""
+        />
+      </div>
+      
+      <div class="alert alert-danger" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+        <small style="color: red" *ngIf="passwordInput.errors?.['required']">
+          Lütfen boş bırakmayınız
+        </small>
+      </div>
+      <div class="alert alert-info">
+        <ul>
+          <li>Valid: {{ passwordInput.valid }}</li>
+          <li>InValid: {{ passwordInput.invalid }}</li>
+          <li>Errors {{ passwordInput.errors | json }}</li>
+          <li>Dirty: {{ passwordInput.dirty }}</li>
+          <li>Pristine: {{ passwordInput.pristine }}</li>
+          <li>Touched: {{ passwordInput.touched }}</li>
+          <li>UnTouched: {{ passwordInput.untouched }}</li>
+          <li>value: {{ passwordInput.value }}</li>
+        </ul>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="rememberMe" [ngModel]="login.rememberMe" />
+        <label class="form-check-label" for="rememberMe">RememberMe</label>
+      </div>   
+      <div  class="form-check" *ngFor="let item of genders">
+        <input
+        class="form-check-input"
+          (ngModelChange)="genderChange($event)"
+          [ngModel]="login.gender"
+          type="radio"
+          name="gender"
+          [value]="item.value"/>
+          <label class="form-check-label" for="exampleRadios1">
+            {{ item.gender }}
+          </label>          
+      </div>
+        <label style="font-weight: 750;" >Ülke: </label>
+        <select class="form-control"
+        name="country2"
+        (ngModelChange)="countryChange($event)"
+        [ngModel]="login.country">
+
+        <option *ngFor="let item of countries" value="{{ item.value }}">
+          {{ item.country }}
+        </option>
+      </select>
+      <br />
+      <button type="sumbit" class="btn btn-primary">Giriş</button>
+    </form>
+  </div>
+</div>
