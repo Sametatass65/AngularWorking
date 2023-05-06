@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" >DermalAcademy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="course"  routerLinkActive="current-active">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="courseDetail" routerLinkActive="current-active">CourseDetail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="members" routerLinkActive="current-active" >Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="memberdetail" routerLinkActive="current-active" >MemberDetail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="payments" routerLinkActive="current-active">Payments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="certificates" routerLinkActive="current-active">Certificates</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,12 @@
+<ul>
+    <li routerLink="/first" [queryParams]="{page:5 ,pagesize:8}"><a>First Component</a></li>
+    <li [routerLink]="['second',5]"><a>Second Component</a></li>
+    <li routerLink="second/2"><a>Second2 Component</a></li>
+    <li routerLink=""><a>Root Component</a></li>
+</ul>
+<h1>Sayfalar</h1>
+
+
+<hr>
+
+<router-outlet></router-outlet>
